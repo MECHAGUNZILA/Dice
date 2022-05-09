@@ -1,0 +1,106 @@
+
+
+let dice1;
+let dice2;
+let dice3;
+let dice4;
+let dice5;
+let dice6;
+
+// draw a spinning box
+// with width, height and depth of 50
+
+function preload() {
+  dice1 = loadImage("dice1.png");
+  dice2 = loadImage("dice2.png");
+  dice3= loadImage("dice3.png");
+  dice4= loadImage("dice4.png");
+  dice5= loadImage("dice5.png");
+  dice6= loadImage("dice6.png");
+  let dice;
+}
+function setup() {
+  //create cavas using WEBGL 3d renderer
+  createCanvas(400, 400, WEBGL);
+  normalMaterial();
+}
+//draw a dice that will control its orbit
+function draw() {
+  background(300);
+  orbitControl(10);
+  rotateY(1000);
+  
+ 
+  
+
+  
+ 
+
+  //make shapes for each face of cube
+  beginShape();
+  texture(dice1); //texture with image
+  
+  //vertex requires x, y, z, u, and v coords
+  //u and v are how much to stretch the images to fit the vertex
+  vertex(-100, -100, 100, 0, 0);
+  vertex(100, -100, 100, 0, dice1.height);
+  vertex(100, 100, 100, dice1.width, dice1.height);
+  vertex(-100, 100, 100, 0, dice1.height);
+  endShape(CLOSE);
+
+  beginShape();
+  texture(dice2);
+  vertex(-100, -100, -100, 0, 0);
+  vertex(100, -100, -100, 0, dice2.height);
+  vertex(100, 100, -100, dice2.width, dice2.height);
+  vertex(-100, 100, -100, 0, dice2.height);
+  endShape(CLOSE);
+
+  beginShape();
+  texture(dice3)
+  vertex(-100, -100, 100, 0, 0);
+  vertex(100, -100, 100, 0, dice3.height);
+  vertex(100, -100, -100,dice3.width,dice3.height);
+  vertex(-100, -100, -100, 0, dice3.height);
+  endShape(CLOSE);
+  
+   beginShape();
+  texture(dice4)
+   vertex(100, 100, -100, 0, 0);
+   vertex(-100, 100, -100,  dice4.width,0);
+   vertex(-100, 100, 100, dice4.width,dice4.height);
+   vertex(100, 100, 100, 0, dice4.height);
+   endShape(CLOSE);
+  
+   beginShape();
+  texture(dice5)
+  vertex(100, -100, 100, 0, 0);
+  vertex(100, -100, -100, dice5.width,0);
+  vertex(100, 100, -100,dice5.width, dice5.height);
+  vertex(100, 100, 100,0, dice5.height);
+  endShape(CLOSE);
+  
+  beginShape();
+  texture(dice6)
+  vertex(-100, 100, -100, 0, 0);
+  vertex(-100, 100, 100, dice6.width,0);
+  vertex(-100, -100, 100, dice6.width, dice6.height);
+  vertex(-100, -100, -100, 0, dice6.height);
+  endShape(CLOSE);
+  
+ beginShape();
+  vertex(-100, -100, 100);
+  vertex(100, -100, 100);
+  vertex(100, -100, -100);
+  vertex(-100, -100, -100);
+  endShape(CLOSE);
+  pop();
+  
+ 
+
+  
+  
+ 
+  
+
+}
